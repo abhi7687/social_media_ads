@@ -1,0 +1,122 @@
+
+
+<body>
+
+  <div class="container">
+    <h1 class="header">Social Media Ads Classification</h1>
+
+    <div class="body">
+      <div class="container-fluid">
+        <form class="form" #myform="ngForm">
+          <fieldset>
+            <!-- <legend>Social media ads classification</legend> -->
+            <table class="cls">
+              <tr>
+                <th><label for="Age" class="label">Age</label></th>
+                <td><input id="Age" [(ngModel)]="age" [ngModelOptions]="{standalone: true}" type="number"></td>
+              </tr>
+              <tr>
+                <th><label for="EstimatedSalary" class="label">EstimatedSalary</label></th>
+                <td><input [(ngModel)]="estimatedSalary" [ngModelOptions]="{standalone: true}" id="EstimatedSalary" type="number"></td>
+              </tr>
+              <tr>
+                <th><label for="Gender" class="label">Gender</label></th>
+                <td>
+                  <input type="radio" [(ngModel)]="gender" [ngModelOptions]="{standalone: true}" value="0" name="Gender" id="Gender1">
+                  <label for="Gender1">Male</label>
+                  <input type="radio" [(ngModel)]="gender" [ngModelOptions]="{standalone: true}" value="1" name="Gender" id="Gender2">
+                  <label for="Gender2">Female</label>
+                </td>
+              </tr>
+              <tr>
+                <td colspan="2" class="submit">
+                  <button (click)="predict()" class="btn btn-primary">Submit</button>
+                </td>
+              </tr>
+            </table>
+          </fieldset>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-fluid body2">
+    <div class="box">
+      <div *ngIf="predictionResult">
+        <p>Prediction: {{ predictionResult.Purchased }}</p>
+      </div>
+
+      <div *ngIf="predictionResult.Purchased==1">
+        <p class="f1">Product is Purchased</p>
+      </div>
+
+      <div *ngIf="predictionResult.Purchased==0">
+        <p class="f1">Product is not Purchased</p>
+      </div>
+
+      <div *ngIf="errorMessage">
+        <p style="color: red;">{{ errorMessage }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row justify-content-center align-items-center">
+      <div class="col-md-6">
+        <h2 class="f1">Technology</h2>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <h3 class="f1">Machine Learning</h3>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th scope="row" class="f3">Language</th>
+          <td class="f3">Python</td>
+        </tr>
+        <tr>
+          <th scope="row" class="f3">Libraries</th>
+          <td class="f3">Numpy, pandas, seaborn, matplotlib, os, pickle, Fastapi</td>
+        </tr>
+        <tr>
+          <th scope="row" class="f3">IDE</th>
+          <td class="f3">Jupyter notebook</td>
+        </tr>
+        <tr>
+          <th scope="row" class="f3">Algorithms</th>
+          <td class="f3">Random Forest</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  <div class="container">
+    <h3 class="f1">Application Development</h3>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th scope="row" class="f3">Language</th>
+          <td class="f3">Python</td>
+        </tr>
+        <tr>
+          <th scope="row" class="f3">Back End</th>
+          <td class="f3">Fastapi</td>
+        </tr>
+        <tr>
+          <th scope="row" class="f3">Front End</th>
+          <td class="f3">Angular</td>
+        </tr>
+        <tr>
+          <th scope="row" class="f3">IDE</th>
+          <td class="f3">VScode</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+
+</body>
+
+
